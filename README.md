@@ -1,70 +1,81 @@
-# Getting Started with Create React App
+# React Todo App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A simple and interactive **To-do application** built with **React**. Users can:
+- Add tasks
+- Remove tasks
+- Edit tasks
+- Mark tasks as completed
+- Drag and drop tasks to reorder them
+- Filter tasks by All, Completed, and Pending
 
-## Available Scripts
+The app stores tasks in **local storage** to persist data across page reloads.
 
-In the project directory, you can run:
+## Features
+- **Add New Task**: Input field for entering a new task.
+- **Edit Task**: Ability to edit any existing task by clicking the edit button.
+- **Delete Task**: Remove a task from the list.
+- **Mark as Completed**: Mark tasks as complete or pending by clicking on the checkbox.
+- **Drag and Drop Reordering**: Drag tasks and drop them in a new order.
+- **Filter Tasks**: Filter tasks by "All", "Completed", and "Pending".
+- **Local Storage Persistence**: Tasks are saved in the browser’s local storage to ensure persistence between sessions.
 
-### `npm start`
+## Installation
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Follow the steps below to set up and run the Todo app locally:
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### Prerequisites
 
-### `npm test`
+Ensure you have **Node.js** and **npm** installed on your machine.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Installation Steps
 
-### `npm run build`
+1. Clone the repository:
+    ```bash
+    git clone https://github.com/yourusername/react-todo-app.git
+    ```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+2. Navigate to the project directory:
+    ```bash
+    cd react-todo-app
+    ```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+3. Install the dependencies:
+    ```bash
+    npm install
+    ```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+4. Run the application:
+    ```bash
+    npm start
+    ```
 
-### `npm run eject`
+The app will be available at `http://localhost:3000`.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Usage
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+- **Add Task**: Type a new task into the input field and click the "Add" button.
+- **Edit Task**: Click the "Edit" icon next to a task, modify the text, and save it.
+- **Delete Task**: Click the "Delete" icon to remove the task.
+- **Complete Task**: Click the checkbox to mark a task as completed or pending.
+- **Drag and Drop**: Reorder tasks by dragging and dropping them in the desired order.
+- **Filter Tasks**: Use the buttons to filter tasks by their completion status.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## Dependencies
 
-## Learn More
+- **React**: A JavaScript library for building user interfaces.
+- **ESLint**: Linter for identifying and reporting on patterns in JavaScript.
+- **Prettier**: A code formatter to ensure consistent style.
+- **Stylelint**: Linter for CSS.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Scripts
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- `npm start`: Runs the app in development mode.
+- `npm run lint`: Lints the JavaScript and CSS files for any style violations.
+- `npm run lint:fix`: Fixes any linting issues automatically.
 
-### Code Splitting
+## License
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
 
-### Analyzing the Bundle Size
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
