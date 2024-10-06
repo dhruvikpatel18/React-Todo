@@ -9,23 +9,23 @@ import '../assets/css/styles.css';
  * @returns {JSX.Element} The rendered component.
  */
 const Todo = () => {
-  const [todos, setTodos] = useState(() => {
-    const savedTodos = localStorage.getItem('todos');
-    return savedTodos ? JSON.parse(savedTodos) : [];
-  });
+  const [ todos, setTodos ] = useState( () => {
+    const savedTodos = localStorage.getItem( 'todos' );
+    return savedTodos ? JSON.parse( savedTodos ) : [];
+  } );
 
-  const [filter, setFilter] = useState('All');
+  const [ filter, setFilter ] = useState( 'All' );
 
-  useEffect(() => {
-    localStorage.setItem('todos', JSON.stringify(todos));
-  }, [todos]);
+  useEffect( () => {
+    localStorage.setItem( 'todos', JSON.stringify( todos ) );
+  }, [ todos ] );
 
   /**
    * Adds a new todo to the list.
    * @param {string} task - The task description to be added.
    * @returns {void}
    */
-  const addTodo = (task) => {
+  const addTodo = ( task ) => {
     const newTodo = {
       id: Date.now(),
       task,
@@ -33,7 +33,7 @@ const Todo = () => {
       addedTime: new Date().toLocaleString(),
       modifiedTime: null
     };
-    setTodos([...todos, newTodo]);
+    setTodos( [ ...todos, newTodo ] );
   };
 
   /**
@@ -41,8 +41,8 @@ const Todo = () => {
    * @param {number} id - The ID of the todo to be removed.
    * @returns {void}
    */
-  const removeTodo = (id) => {
-    setTodos(todos.filter((todo) => todo.id !== id));
+  const removeTodo = ( id ) => {
+    setTodos( todos.filter( ( todo ) => todo.id !== id ) );
   };
 
   /**
@@ -50,9 +50,9 @@ const Todo = () => {
    * @param {number} id - The ID of the todo to be toggled.
    * @returns {void}
    */
-  const toggleCompletion = (id) => {
+  const toggleCompletion = ( id ) => {
     setTodos(
-      todos.map((todo) => (todo.id === id ? { ...todo, completed: !todo.completed } : todo))
+      todos.map( ( todo ) => ( todo.id === id ? { ...todo, completed: ! todo.completed } : todo ) )
     );
   };
 
@@ -62,9 +62,9 @@ const Todo = () => {
    * @param {string} newTask - The updated task description.
    * @returns {void}
    */
-  const editTodo = (id, newTask) => {
+  const editTodo = ( id, newTask ) => {
     setTodos(
-      todos.map((todo) =>
+      todos.map( ( todo ) =>
         todo.id === id
           ? { ...todo, task: newTask, modifiedTime: new Date().toLocaleString() }
           : todo
@@ -77,8 +77,8 @@ const Todo = () => {
    * @param {Array} reorderedTodos - The updated list of todos after reordering.
    * @returns {void}
    */
-  const editTodoListOrder = (reorderedTodos) => {
-    setTodos(reorderedTodos);
+  const editTodoListOrder = ( reorderedTodos ) => {
+    setTodos( reorderedTodos );
   };
 
   /**
@@ -86,11 +86,11 @@ const Todo = () => {
    * @returns {Array} A filtered list of todos.
    */
   const filterTasks = () => {
-    switch (filter) {
+    switch ( filter ) {
       case 'Completed':
-        return todos.filter((todo) => todo.completed);
+        return todos.filter( ( todo ) => todo.completed );
       case 'Pending':
-        return todos.filter((todo) => !todo.completed);
+        return todos.filter( ( todo ) => ! todo.completed );
       default:
         return todos;
     }
@@ -107,19 +107,19 @@ const Todo = () => {
 
       {/* Filter Buttons */}
       <div className="filter-buttons">
-        <button onClick={() => setFilter('All')} className={'All' === filter ? 'active' : ''}>
+        <button onClick={() => setFilter( 'All' )} className={'All' === filter ? 'active' : ''}>
           All
         </button>
 
         <button
-          onClick={() => setFilter('Completed')}
+          onClick={() => setFilter( 'Completed' )}
           className={'Completed' === filter ? 'active' : ''}
         >
           Completed
         </button>
 
         <button
-          onClick={() => setFilter('Pending')}
+          onClick={() => setFilter( 'Pending' )}
           className={'Pending' === filter ? 'active' : ''}
         >
           Pending

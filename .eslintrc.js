@@ -11,14 +11,14 @@ module.exports = {
   env: {
     browser: true
   },
-  extends: ['eslint:recommended', 'plugin:react/recommended', 'plugin:eslint-comments/recommended'],
+  extends: [ 'eslint:recommended', 'plugin:react/recommended', 'plugin:eslint-comments/recommended' ],
   rules: {
     'react/react-in-jsx-scope': 'off',
     'react/prop-types': 'off',
-    'space-in-parens': ['error', 'always'],
-    'array-bracket-spacing': ['error', 'always'],
-    'object-curly-spacing': ['error', 'always'],
-    'space-before-blocks': ['error', 'always'],
+    'space-in-parens': [ 'error', 'always' ],
+    'array-bracket-spacing': [ 'error', 'always' ],
+    'object-curly-spacing': [ 'error', 'always' ],
+    'space-before-blocks': [ 'error', 'always' ],
     'space-infix-ops': 'error',
     'space-unary-ops': [
       'error',

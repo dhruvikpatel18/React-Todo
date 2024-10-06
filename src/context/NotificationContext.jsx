@@ -10,7 +10,7 @@ const NotificationContext = createContext();
  * Custom hook to use the NotificationContext.
  * @returns {Object} The context value containing notification functions.
  */
-export const useNotification = () => useContext(NotificationContext);
+export const useNotification = () => useContext( NotificationContext );
 
 /**
  * NotificationProvider component - Provides the notification context and manages
@@ -19,8 +19,8 @@ export const useNotification = () => useContext(NotificationContext);
  * @param {React.ReactNode} props.children - The children components that will have access to the notification context.
  * @returns {JSX.Element} The rendered provider component with notification display.
  */
-export const NotificationProvider = ({ children }) => {
-  const [notifications, setNotifications] = useState([]);
+export const NotificationProvider = ( { children } ) => {
+  const [ notifications, setNotifications ] = useState( [] );
 
   /**
    * Adds a new notification with a timeout for auto-removal.
@@ -28,15 +28,15 @@ export const NotificationProvider = ({ children }) => {
    * @param {string} [type='info'] - The type of notification (e.g., 'info', 'success', 'error').
    * @returns {void}
    */
-  const addNotification = (message, type = 'info') => {
+  const addNotification = ( message, type = 'info' ) => {
     const id = Date.now();
-    setNotifications([...notifications, { id, message, type }]);
+    setNotifications( [ ...notifications, { id, message, type } ] );
 
-    setTimeout(() => {
-      setNotifications((currentNotifications) =>
-        currentNotifications.filter((notification) => notification.id !== id)
+    setTimeout( () => {
+      setNotifications( ( currentNotifications ) =>
+        currentNotifications.filter( ( notification ) => notification.id !== id )
       );
-    }, 4000);
+    }, 4000 );
   };
 
   /**
@@ -44,8 +44,8 @@ export const NotificationProvider = ({ children }) => {
    * @param {number} id - The ID of the notification to remove.
    * @returns {void}
    */
-  const removeNotification = (id) => {
-    setNotifications(notifications.filter((notification) => notification.id !== id));
+  const removeNotification = ( id ) => {
+    setNotifications( notifications.filter( ( notification ) => notification.id !== id ) );
   };
 
   return (
@@ -53,11 +53,11 @@ export const NotificationProvider = ({ children }) => {
       {children}
       {/* Render notifications */}
       <div className="notification-container">
-        {notifications.map((notification) => (
+        {notifications.map( ( notification ) => (
           <div key={notification.id} className={`notification ${notification.type}`}>
             {notification.message}
           </div>
-        ))}
+        ) )}
       </div>
     </NotificationContext.Provider>
   );
