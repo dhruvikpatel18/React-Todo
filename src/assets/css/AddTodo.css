@@ -1,0 +1,82 @@
+/**
+ * AddTodo.css
+ *
+ * This file contains styles for the AddTodo component, including input field, button,
+ * and error message styling.
+ */
+
+/* Container for the AddTodo form */
+.add-todo {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+  padding: 10px 0;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 10%;
+  background-color: #f0f4f8;
+  z-index: 1000;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Styles for the input field */
+.add-todo input {
+  padding: 12px;
+  width: 70%;
+  margin-right: 10px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 16px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  outline: none;
+  transition:
+    border-color 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+/* Input field styles when focused */
+.add-todo input:focus {
+  border-color: #3498db;
+  box-shadow: 0 0 8px rgba(52, 152, 219, 0.6);
+  background-color: #eaf6ff;
+}
+
+/* Styles for the submit button */
+.add-todo button {
+  display: flex;
+  align-items: center;
+  padding: 12px 20px;
+  background-color: #3498db;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 16px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  transition:
+    background-color 0.3s ease,
+    transform 0.2s ease,
+    box-shadow 0.3s ease;
+}
+
+/* Icon inside the button */
+.add-todo .add-icon {
+  width: 20px;
+  height: 20px;
+  margin-right: 8px;
+}
+
+/* Button hover effects */
+.add-todo button:hover {
+  background-color: #2980b9;
+  transform: scale(1.05);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+/* Error message styling */
+.input-error {
+  color: #e74c3c;
+  font-size: 12px;
+  margin-top: 5px;
+  margin-left: 10px;
+}

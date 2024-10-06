@@ -1,0 +1,249 @@
+/**
+ * TodoItem.css
+ *
+ * This file contains the styles for individual todo items, including input fields,
+ * task text, check icons, action buttons (delete and edit).
+ */
+
+/* Styles for each todo item */
+.todo-item {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  background-color: #ecf0f1;
+  padding: 12px;
+  margin-bottom: 12px;
+  border-radius: 6px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  transition:
+    background-color 0.3s ease,
+    opacity 0.3s ease;
+}
+
+/* Content area for the todo item */
+.todo-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+}
+
+/* Action buttons (delete, edit) container */
+.todo-actions {
+  display: flex;
+  align-items: center;
+}
+
+/* Styles for input fields within a todo item */
+.todo-item input {
+  flex-grow: 1;
+  padding: 10px 15px;
+  font-size: 16px;
+  border: 1px solid #bdc3c7;
+  border-radius: 6px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  margin-left: 10px;
+  transition:
+    border-color 0.3s ease,
+    box-shadow 0.3s ease,
+    background-color 0.3s ease;
+}
+
+/* Focused input field styles */
+.todo-item input:focus {
+  outline: none;
+  border-color: #3498db;
+  background-color: #f0f9ff;
+  box-shadow: 0 4px 10px rgba(52, 152, 219, 0.2);
+}
+
+/* Hover state for input fields */
+.todo-item input:hover {
+  border-color: #2980b9;
+}
+
+/* Task text styling */
+.task-text {
+  flex-grow: 1;
+  font-size: 18px;
+  color: #2c3e50;
+  margin-left: 10px;
+}
+
+/* Timestamps for the task (added or modified) */
+.task-timestamps {
+  align-self: flex-end;
+  margin-top: 12px;
+  font-size: 8px;
+  color: #7f8c8d;
+}
+
+.task-timestamps small {
+  display: block;
+  font-size: 10px;
+}
+
+/* Check icon styling */
+.check-icon {
+  width: 20px;
+  height: 20px;
+  padding-right: 8px;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+/* Check icon hover state */
+.check-icon:hover {
+  transform: scale(1.1);
+}
+
+.todo-item .task-text {
+  display: block;
+  flex-grow: 1;
+  font-size: 18px;
+  color: #2c3e50;
+  margin-left: 10px;
+  transition:
+    color 0.3s ease,
+    text-decoration 0.3s ease;
+}
+
+/* Completed task text styling */
+.todo-item .task-text.completed {
+  text-decoration: line-through;
+  color: #95a5a6;
+  opacity: 0.7;
+}
+
+/* Animation for completed tasks */
+@keyframes completeEffect {
+  0% {
+    transform: scale(1) translateX(0);
+    opacity: 1;
+  }
+
+  50% {
+    transform: scale(0.98) translateX(10px);
+    opacity: 0.9;
+  }
+
+  100% {
+    transform: scale(0.95) translateX(15px);
+    opacity: 0.7;
+  }
+}
+
+/* Styles for completed todo items */
+.todo-item.completed {
+  background-color: #d1f2eb;
+  animation: completeEffect 0.4s ease-out forwards;
+}
+
+/* Action button styles (delete, edit) */
+.todo-item button {
+  padding-left: 10px;
+  font-size: 14px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition:
+    background-color 0.3s ease,
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+/* Delete and edit icons */
+.action-icon {
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+  margin-left: 20px;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+}
+
+/* Action icon hover effect */
+.action-icon:hover {
+  transform: scale(1.1);
+}
+
+.delete-icon {
+  transition: background-color 0.3s ease;
+}
+
+.edit-icon {
+  transition: background-color 0.3s ease;
+}
+
+/* Input field styles for text editing */
+.todo-item input[type='text'] {
+  width: 100%;
+  padding: 6px 10px;
+  margin-left: 14px;
+  font-size: 16px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  outline: none;
+}
+
+.icon-button {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+/* Responsive styles for tablet screens */
+@media (max-width: 768px) {
+  .todo-item {
+    padding: 10px;
+  }
+
+  .task-text {
+    font-size: 16px;
+    margin-left: 8px;
+  }
+
+  .task-timestamps {
+    font-size: 11px;
+  }
+}
+
+/* Responsive styles for mobile screens */
+@media (max-width: 480px) {
+  .todo-item {
+    flex-direction: column;
+    padding: 8px;
+  }
+
+  .todo-content {
+    flex-direction: column;
+    align-items: flex-end;
+  }
+
+  .task-text {
+    font-size: 15px;
+    margin-left: 0;
+  }
+
+  .todo-item input[type='text'] {
+    margin-top: 5px;
+    width: 95%;
+  }
+
+  .task-timestamps {
+    font-size: 10px;
+    align-self: flex-start;
+    margin-top: 5px;
+  }
+
+  .todo-actions {
+    margin-top: 8px;
+  }
+
+  .action-icon {
+    width: 20px;
+    height: 20px;
+  }
+}

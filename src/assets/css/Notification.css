@@ -1,0 +1,68 @@
+/**
+ * Notification.css
+ *
+ * This file contains the styles for the notification system, including notification
+ * containers, different notification types (success, error, warning), and animations
+ * for slide-in and fade-out effects.
+ */
+
+/* Container for notifications */
+.notification-container {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 1000;
+}
+
+.notification {
+  background-color: #3498db;
+  color: white;
+  padding: 15px 20px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  opacity: 0;
+  transform: translateX(100%);
+  animation:
+    slideIn 0.5s forwards,
+    fadeOut 0.5s 2.5s forwards;
+}
+
+/* Success notification */
+.notification.success {
+  background-color: #2ecc71;
+}
+
+/* Error notification */
+.notification.error {
+  background-color: #e74c3c;
+}
+
+/* Warning notification */
+.notification.warning {
+  background-color: #f39c12;
+}
+
+/* Keyframes for sliding the notification in */
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Keyframes for fading the notification out */
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+  }
+}

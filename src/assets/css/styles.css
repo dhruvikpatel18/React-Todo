@@ -1,0 +1,138 @@
+/**
+ * styles.css
+ *
+ * This file contains the base styles for the To-do application, including body,
+ * main container, title, and responsiveness for mobile devices.
+ */
+
+/* Base styles for the body */
+body {
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  background-image: radial-gradient(circle, #3498db, #f39c12, #e74c3c);
+  margin: 0;
+  padding: 0;
+  color: #333;
+  transition:
+    background-color 1s ease,
+    background-image 0.5s ease;
+}
+
+h1 {
+  text-align: center;
+  font-size: 32px;
+  margin-top: 20px;
+  color: #2c3e50;
+}
+
+.app-title {
+  font-size: 48px;
+  font-weight: bold;
+  background: linear-gradient(90deg, #3498db, #e74c3c, #f39c12);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  text-align: center;
+  margin-bottom: 20px;
+  text-shadow: 2px 4px 6px rgba(0, 0, 0, 0.1);
+  animation: titleAnimation 1s ease-in-out;
+}
+
+/* Filter button styling */
+.filter-buttons {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
+}
+
+.filter-buttons button {
+  padding: 10px 15px;
+  margin: 0 10px;
+  font-size: 16px;
+  border: 1px solid #bdc3c7;
+  background-color: #ecf0f1;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.filter-buttons button:hover {
+  background-color: #bdc3c7;
+}
+
+.filter-buttons .active {
+  background-color: #3498db;
+  color: white;
+  border-color: #2980b9;
+}
+
+/* Keyframes for title animation */
+@keyframes titleAnimation {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.container {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 20px;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition:
+    transform 0.5s ease,
+    box-shadow 0.5s ease;
+}
+
+.container:hover {
+  transform: scale(1.05) rotate(0deg);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
+  animation: hoverBounce 0.8s ease-out forwards;
+}
+
+/* Keyframes for hover bounce effect */
+@keyframes hoverBounce {
+  0% {
+    transform: scale(1) rotate(0);
+  }
+
+  50% {
+    transform: scale(1.07) rotate(0deg);
+  }
+
+  100% {
+    transform: scale(1.05) rotate(0deg);
+  }
+}
+
+/* Responsive styles for tablet screens */
+@media (max-width: 768px) {
+  .container {
+    max-width: 90%;
+    padding: 15px;
+  }
+
+  .container:hover {
+    transform: none;
+    animation: none;
+  }
+}
+
+/* Responsive styles for mobile screens */
+@media (max-width: 480px) {
+  .container {
+    max-width: 100%;
+    padding: 10px;
+    margin: 10px;
+  }
+
+  .app-title {
+    font-size: 28px;
+  }
+}
