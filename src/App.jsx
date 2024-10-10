@@ -4,9 +4,7 @@ import './assets/css/styles.css';
 
 const App = () => {
   return (
-
     <Todo />
-
   );
 };
 

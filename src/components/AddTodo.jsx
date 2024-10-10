@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useRef, useState   } from 'react';
 import { useNotification } from '../context/NotificationContext';
 import '../assets/css/AddTodo.css';
 import addIcon from '../assets/images/add.png';
@@ -10,9 +10,10 @@ import addIcon from '../assets/images/add.png';
  * @returns {JSX.Element} The rendered component for adding a new todo.
  */
 const AddTodo = ( { addTodo } ) => {
-  const [ task, setTask ] = useState( '' );
+  const taskInputRef = useRef( null );
   const { addNotification } = useNotification();
   const maxCharLimit = 100;
+  const [ inputError, setInputError ] = useState( false );
 
   /**
    * Handles form submission to add a new task.
@@ -23,17 +24,30 @@ const AddTodo = ( { addTodo } ) => {
   const handleSubmit = ( e ) => {
     e.preventDefault();
 
-    if ( task.trim().length > maxCharLimit ) {
+    const task = taskInputRef.current.value.trim();
+
+    if ( task.length > maxCharLimit ) {
       addNotification( `Task cannot be longer than ${maxCharLimit} characters.`, 'error' );
+      setInputError( true );
       return;
     }
 
-    if ( task.trim() ) {
+    if ( task ) {
       addTodo( task );
       addNotification( 'Task added successfully!', 'success' );
-      setTask( '' );
+      taskInputRef.current.value = '';
+      setInputError( false );
     } else {
       addNotification( 'Please enter a task!', 'warning' );
+    }
+  };
+
+  const handleInputChange = () => {
+    const task = taskInputRef.current.value;
+    if ( task.length > maxCharLimit ) {
+      setInputError( true ); // Show error message when task exceeds the limit
+    } else {
+      setInputError( false ); // Hide error message when task length is valid
     }
   };
 
@@ -41,12 +55,12 @@ const AddTodo = ( { addTodo } ) => {
     <form onSubmit={handleSubmit} className="add-todo">
       <input
         type="text"
-        value={task}
-        onChange={( e ) => setTask( e.target.value )}
+        ref={taskInputRef}
         placeholder="Add a new task (max 100 characters)"
+        onChange={handleInputChange}
       />
 
-      {task.length > maxCharLimit && (
+      {inputError && (
         <small className="input-error">Task cannot exceed {maxCharLimit} characters.</small>
       )}
 

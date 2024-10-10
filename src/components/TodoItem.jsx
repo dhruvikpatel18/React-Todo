@@ -56,8 +56,11 @@ const TodoItem = ( { todo, toggleCompletion, removeTodo, editTodo } ) => {
    * @returns {void}
    */
   const handleDelete = () => {
-    removeTodo( todo.id );
-    addNotification( 'Task deleted successfully!', 'error' );
+    const confirmed = window.confirm( "Are you sure you want to delete this task?" );
+    if ( confirmed ) {
+      removeTodo( todo.id );
+      addNotification( 'Task deleted successfully!', 'error' );
+    }
   };
 
   /**
